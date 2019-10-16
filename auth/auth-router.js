@@ -43,7 +43,8 @@ router.post('/login', (req, res) => {
 function generateToken(user) {
     const payload = {
         subject: user.id, //subproperty in the head of token
-        username: user.username, //
+        username: user.username,
+        role: user.role, //
         //...other data
     };
     // const secret = 'lkadoimaoioevoqirjtoaisejt';//dont need this if we import one in and use below

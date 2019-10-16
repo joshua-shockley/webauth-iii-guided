@@ -13,7 +13,10 @@ module.exports = (req, res, next) => {
                 res.status(401).json({ message: 'no way' })
             } else {
                 //token good
-                req.username = decodedToken.username;
+                req.user = {
+                    username: decodedToken.username,
+                    role: decodedToken.role
+                }
                 next();
             }
         })
